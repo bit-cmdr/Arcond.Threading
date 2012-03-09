@@ -1,0 +1,12 @@
+This is a thread pooling class that allows you to create an instance of Pool and set it's maximum number of threads.
+You can then queue up threads to your hearts delight and let it do the work for you.
+
+To stop all the threads you can either call .KillAll() or .Dispose()
+The intent behind .Dispose() is that you are done and will not be using it anymore.
+The intent behind .KillAll() is that you DO want to re-use the pool and you can call .Restart() to get it running again.
+
+To queue up a task you can use .Enqueue(yourThreadStart)
+  or you can call .Enqueue(yourParameterizedThreadStart, yourObjectForTheThread)
+
+The default number of threads is 10 and the max allowed is 1024.  If you try to set 0 or less the default of 10 will be
+used.  If you try to specify more than 1024, the max of 1024 will be used.
